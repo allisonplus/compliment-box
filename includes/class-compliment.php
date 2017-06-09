@@ -57,6 +57,15 @@ class CB_Compliment {
 		add_action( 'cmb2_admin_init', array( $this, 'add_metabox' ) );
 	}
 
+	/**
+	 * Register our setting to WP.
+	 *
+	 * @since  0.0.0
+	 */
+	public function admin_init() {
+		register_setting( $this->key, $this->key );
+	}
+
 	/** Add submenu page to Users. **/
 	public function add_menu() {
 		add_submenu_page(
@@ -76,6 +85,7 @@ class CB_Compliment {
 		?>
 		<div class="wrap <?php echo esc_attr( $this->key ); ?>">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<?php esc_html_e( 'Who would you like to send a compliment to?', 'compliment-box' ); ?>
 			<?php wp_dropdown_users( array(
 				'name'     => 'author',
 				'order_by' => 'display_name',
@@ -104,11 +114,13 @@ class CB_Compliment {
 
 		// Add your fields here.
 		$cmb->add_field( array(
-			'name'    => __( 'Test Text', 'compliment-box' ),
-			'desc'    => __( 'field description (optional)', 'compliment-box' ),
-			'id'      => 'test_text', // No prefix needed.
-			'type'    => 'text',
-			'default' => __( 'Default Text', 'compliment-box' ),
+			'name'    => __( 'The Nice Things You Want To Say', 'compliment-box' ),
+			'id'      => 'your_compliment',
+			'type'    => 'wysiwyg',
+			'options' => array(
+				'textarea_rows' => 12,
+				'media_buttons' => false,
+			),
 		) );
 	}
 
