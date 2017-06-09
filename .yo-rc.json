@@ -1,0 +1,19 @@
+{
+  "generator-plugin-wp": {
+    "name": "Compliment Box",
+    "homepage": "http://www.allisontarr.com",
+    "description": "Because compliments are lovely.",
+    "version": "0.0.0",
+    "author": "Allison Tarr",
+    "authoremail": "hello@allisontarr.com",
+    "authorurl": "http://www.allisontarr.com",
+    "license": "GPLv2",
+    "slug": "compliment-box",
+    "classname": "Compliment_Box",
+    "mainclassname": "Compliment_Box",
+    "classprefix": "CB_",
+    "prefix": "compliment_box",
+    "year": 2017,
+    "currentVersionWP": "4.7.2"
+  }
+}
