@@ -77,8 +77,9 @@ class CB_Compliment {
 		<div class="wrap <?php echo esc_attr( $this->key ); ?>">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php wp_dropdown_users( array(
-				'name'            => 'author',
-				'order_by'        => 'display_name'
+				'name'     => 'author',
+				'order_by' => 'display_name',
+				'class'    => 'compliment-user-dropdown',
 			) ); ?>
 			<?php cmb2_metabox_form( $this->metabox_id, $this->key ); ?>
 		</div>
