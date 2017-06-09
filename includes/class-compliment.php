@@ -76,6 +76,7 @@ class CB_Compliment {
 		?>
 		<div class="wrap <?php echo esc_attr( $this->key ); ?>">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+			<?php wp_dropdown_users( array( 'name' => 'author', 'order_by' => 'display_name' ) ); ?>
 			<?php cmb2_metabox_form( $this->metabox_id, $this->key ); ?>
 		</div>
 		<?php
@@ -83,7 +84,7 @@ class CB_Compliment {
 	}
 
 	/**
-	 * Add custom fields to the options page.
+	 * Add custom fields to the settings page.
 	 *
 	 * @since  NEXT
 	 * @return void
@@ -105,7 +106,6 @@ class CB_Compliment {
 			'type'    => 'text',
 			'default' => __( 'Default Text', 'compliment-box' ),
 		) );
-
 	}
 
 }
