@@ -55,6 +55,18 @@ class CB_Compliment {
 
 		// Init CMB2.
 		add_action( 'cmb2_admin_init', array( $this, 'compliment_form_register' ) );
+
+		// Enqueue the things.
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+	}
+
+	/**
+	 * Enqueue styles.
+	 *
+	 * @since 0.1.0
+	 */
+	public function enqueue_styles() {
+		wp_enqueue_style( 'compliment-box', $this->plugin->url . 'assets/css/sass/styles.scss' );
 	}
 
 	/**
