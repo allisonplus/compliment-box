@@ -54,7 +54,7 @@ class CB_Compliment {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 
 		// Init CMB2.
-		add_action( 'cmb2_admin_init', array( $this, 'add_metabox' ) );
+		add_action( 'cmb2_admin_init', array( $this, 'compliment_form_register' ) );
 	}
 
 	/**
@@ -103,7 +103,7 @@ class CB_Compliment {
 	 * @since  NEXT
 	 * @return void
 	 */
-	public function add_metabox() {
+	public function compliment_form_register() {
 
 		// Add our CMB2 metabox.
 		$cmb = new_cmb2_box( array(
@@ -124,4 +124,13 @@ class CB_Compliment {
 		) );
 	}
 
+	/**
+	 * Get values for email.
+	 *
+	 * @since  NEXT
+	 * @todo get mail values: wp_mail( $to, $subject, $message );
+	 * @return void
+	 */
+	public function get_mail_values() {
+	}
 }
