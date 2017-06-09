@@ -115,6 +115,14 @@ final class Compliment_Box {
 	protected static $single_instance = null;
 
 	/**
+	 * Instance of CB_Settings
+	 *
+	 * @since0.0.0
+	 * @var CB_Settings
+	 */
+	protected $settings;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since   0.0.0
@@ -145,8 +153,8 @@ final class Compliment_Box {
 	 * @since  0.0.0
 	 */
 	public function plugin_classes() {
-		// $this->plugin_class = new CB_Plugin_Class( $this );
 
+		$this->settings = new CB_Settings( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -302,6 +310,7 @@ final class Compliment_Box {
 			case 'basename':
 			case 'url':
 			case 'path':
+			case 'settings':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid ' . __CLASS__ . ' property: ' . $field );
